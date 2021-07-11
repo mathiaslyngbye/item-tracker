@@ -1,3 +1,0 @@
-/home/mal/Projects/garment_tracker/build/CMakeFiles/rebuild_cache.dir
-/home/mal/Projects/garment_tracker/build/CMakeFiles/garment_tracker.dir
-/home/mal/Projects/garment_tracker/build/CMakeFiles/edit_cache.dir
