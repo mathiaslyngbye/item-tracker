@@ -83,9 +83,12 @@ void runTracking(DataQueue<std::shared_ptr<cv::Mat>> *inqueue, DataQueue<std::sh
         std::vector<cv::Rect> detected_units;
         for(int i = 0; i<contours.size(); i++)
         {
-            if(cv::contourArea(contours[i]) >= CONTOUR_AREA_MIN)
+            // Generate bounding rect for comparison
+            cv::Rect bounding_rect = getBoundingRect(contours[i]);
+            
+            if(cv::contourArea(contours[i]) >= CONTOUR_AREA_MIN &&
+                bounding_rect.x > 0 && (bounding_rect.x+bounding_rect.width)<(image_ptr->cols-1))
             {
-                cv::Rect bounding_rect = getBoundingRect(contours[i]);
                 detected_units.push_back(bounding_rect); 
             }
         }
